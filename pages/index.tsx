@@ -48,7 +48,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="flex justify-center my-10">
-        <div className="w-[600px] shadow-lg border dark:border-slate-600 min-h-[90vh] mx-8 rounded-3xl p-6 sm:p-9 overflow-x-hidden overflow-y-auto">
+        <div className="w-[600px] shadow-lg border dark:border-slate-600 min-h-[90vh] mx-3 sm:mx-8 rounded-3xl p-6 sm:p-9 overflow-x-hidden overflow-y-auto">
           <div className="flex justify-between items-center">
             <h1 className="text-2xl underline decoration-wavy decoration-2 underline-offset-4">
               Todo
