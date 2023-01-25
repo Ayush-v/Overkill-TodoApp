@@ -1,9 +1,42 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
+import Head from "next/head";
 
-const inter = Inter({ subsets: ['latin'] })
+const TodoItems = [
+  {
+    color: "#EF233C",
+    title: "Organize photo shoot",
+    date: "Today",
+    checked: false,
+    tags: ["work", "hooli"],
+  },
+  {
+    color: "#B2B6FF",
+    title: "Buy milk",
+    date: "Today",
+    checked: false,
+    tags: ["Grocery"],
+  },
+  {
+    color: "#FFE9B2",
+    title: "Set up meeting w/ Globex",
+    date: "Tomorrow",
+    checked: false,
+    tags: ["work"],
+  },
+  {
+    color: "#FFC6C6",
+    title: "Renew Password",
+    date: "Tomorrow",
+    checked: false,
+    tags: ["personal"],
+  },
+  {
+    color: "#C6FAFF",
+    title: "Checklist LA trip",
+    date: "Tomorrow",
+    checked: false,
+    tags: ["work"],
+  },
+];
 
 export default function Home() {
   return (
@@ -14,110 +47,80 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.tsx</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
+      <div className="flex justify-center my-10">
+        <div className="w-[600px] shadow-lg border dark:border-slate-600 min-h-[90vh] mx-8 rounded-3xl p-6 sm:p-9 overflow-x-hidden overflow-y-auto">
+          <div className="flex justify-between items-center">
+            <h1 className="text-2xl underline decoration-wavy decoration-2 underline-offset-4">
+              Todo
+            </h1>
+            <button className="capitalize bg-[#6e48f5] px-3.5 py-2 rounded-md text-sm sm:text-base text-white">
+              create reminder +
+            </button>
+          </div>
+          <div className="mt-6">
+            <ul className="space-y-2">
+              {TodoItems.map((item) => (
+                <li
+                  className="border rounded-lg p-3 dark:border-slate-700"
+                  key={item.title}
+                >
+                  <div className="flex justify-start items-center gap-3 sm:gap-5">
+                    <div
+                      style={{ borderColor: item.color }}
+                      className={`min-w-[20px] min-h-[20px] border-2 rounded-full resize-none]`}
+                    ></div>
+                    <div className="leading-none flex flex-col sm:flex-row justify-between items-start sm:items-center w-full gap-3">
+                      <div>
+                        <h3 className="font-semibold text-base sm:text-lg">
+                          {item.title}
+                        </h3>
+                        <span className="text-xs sm:text-sm">{item.date}</span>
+                      </div>
+                      <div className="mr-2 space-x-2">
+                        {item.tags.map((tag, idx) => (
+                          <span
+                            key={idx}
+                            className="bg-gray-100 dark:bg-gray-700 font-medium capitalize text-xs sm:text-sm px-2 py-1.5 rounded-md"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="mt-6">
+            <h2 className="font-semibold mb-3">Completed</h2>
+            <ul className="opacity-50">
+              <li className="border rounded-lg p-3 dark:border-slate-700">
+                <div className="flex justify-start items-center gap-3 sm:gap-5">
+                  <div
+                    className={`min-w-[20px] min-h-[20px] border-2 rounded-full resize-none]`}
+                  ></div>
+                  <div className="leading-none flex flex-col sm:flex-row justify-between items-start sm:items-center w-full gap-3">
+                    <div>
+                      <h3 className="font-semibold text-base sm:text-lg line-through">
+                        Set up meeting w/ Globex
+                      </h3>
+                      <span className="text-xs sm:text-sm line-through">
+                        Tomorrow
+                      </span>
+                    </div>
+                    <div className="mr-2 space-x-2">
+                      <span className="bg-gray-100 dark:bg-gray-700 font-medium capitalize text-xs sm:text-sm px-2 py-1.5 rounded-md">
+                        work
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
-
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-          <div className={styles.thirteen}>
-            <Image
-              src="/thirteen.svg"
-              alt="13"
-              width={40}
-              height={31}
-              priority
-            />
-          </div>
-        </div>
-
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
+      </div>
     </>
-  )
+  );
 }
