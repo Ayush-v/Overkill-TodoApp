@@ -88,20 +88,21 @@ const Select = ({ value, onChange, options, multiple }: SelectProps) => {
         <div className="w-full h-[1px] bg-gray-200"></div>
         <div className="mt-2">
           <ul className="flex flex-wrap gap-3">
-            {options.map((option) => (
-              <li
-                onClick={(e) => {
-                  e.stopPropagation();
-                  selectOption(option);
-                }}
-                key={option.label}
-                className={`bg-gray-100 font-medium capitalize text-xs sm:text-sm px-4 py-0.5 rounded-full cursor-pointer ${
-                  isOptionSelected(option) ? "bg-blue-300" : ""
-                }`}
-              >
-                {option.label}
-              </li>
-            ))}
+            {options &&
+              options.map((option) => (
+                <li
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    selectOption(option);
+                  }}
+                  key={option.label}
+                  className={`bg-gray-100 font-medium capitalize text-xs sm:text-sm px-4 py-0.5 rounded-full cursor-pointer ${
+                    isOptionSelected(option) ? "bg-blue-300" : ""
+                  }`}
+                >
+                  {option.label}
+                </li>
+              ))}
           </ul>
         </div>
       </div>
