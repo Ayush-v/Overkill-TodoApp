@@ -11,9 +11,9 @@ datasource db {
 }
 
 model TodoItem {
-  id        Int      @id @default(autoincrement())
+  id        String   @id @default(uuid())
   createdAt DateTime @default(now())
   title     String
-  checked   Boolean
+  checked   Boolean  @default(false)
   tags      String[]
 }

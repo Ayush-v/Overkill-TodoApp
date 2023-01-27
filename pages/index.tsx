@@ -1,5 +1,5 @@
 import Head from "next/head";
-// import prisma from "@/lib/prisma";
+import CreateTodo from "./components/CreateTodo";
 
 const TodoItems = [
   {
@@ -54,9 +54,10 @@ export default function Home() {
             <h1 className="text-2xl underline decoration-wavy decoration-2 underline-offset-4">
               Todo
             </h1>
-            <button className="capitalize bg-[#6e48f5] px-3.5 py-2 rounded-md text-sm sm:text-base text-white">
-              create reminder +
-            </button>
+            {/* <button className="capitalize bg-zinc-800  px-3.5 py-2 rounded-md text-sm sm:text-base text-white inline-flex drop-shadow-lg border border-stone-900">
+              + create reminder
+            </button> */}
+            <CreateTodo />
           </div>
           <div className="mt-6">
             <ul className="space-y-2">
