@@ -13,7 +13,7 @@ const option = [
 export default function CreateTodo() {
   let [isOpen, setIsOpen] = useState(false);
   const [value, setValue] = useState<SelectOption | undefined>(option[0]);
-  const [value2, setValue2] = useState<SelectOption[]>([option[0]]);
+  const [value2, setValue2] = useState<SelectOption[]>([]);
 
   function closeModal() {
     setIsOpen(false);

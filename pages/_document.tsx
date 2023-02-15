@@ -10,6 +10,13 @@ export default function Document() {
         />
       </Head>
       <body className="font-Satoshi bg-white dark:bg-zinc-900 text-black dark:text-white">
+        {/* <div className="pointer-events-none absolute inset-0 flex justify-center">
+          <div className="hidden h-full w-full max-w-7xl grid-cols-3 gap-3.5 px-4 lg:grid">
+            <div className="border-x border-white/5"></div>
+            <div className="border-x border-white/5"></div>
+            <div className="border-x border-white/5"></div>
+          </div>
+        </div> */}
         <Main />
         <NextScript />
       </body>
